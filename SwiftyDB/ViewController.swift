@@ -24,7 +24,7 @@ struct Test: Storable {
 //    var v: [Int]
 //    let c = C()
     let id: Int
-    let name: String?
+    let name: String
     let bool: Bool
 //    let date: Date
     
@@ -63,10 +63,9 @@ class ViewController: UIViewController {
         
         
         
-        
-        
         for i in 0..<20 {
-            _ = db.insert(Test(id: i, name: (i % 2 == 0 ? "a\(i)" : nil), bool: i % 2 == 0))
+//            _ = db.insert(Test(id: i, name: (i % 2 == 0 ? "a\(i)" : nil), bool: i % 2 == 0))
+            _ = db.insert(Test(id: i, name: "a\(i)", bool: i % 2 == 0))
         }
         
         /*

@@ -18,15 +18,19 @@ struct PropertyInfo {
     //    private let _property: Mirror.Child
     
     init(property: Mirror.Child) {
-        //        _property = property
+        
         name = property.label!
         
-        value = property.value as? SQLiteValue
+//        if let v = PropertyInfo.unwrapOptional(property.value) {
+//            value = (v as! SQLiteValue)
+//        } else {
+//            value = nil
+//        }
+        value = PropertyInfo.unwrapOptional(property.value) as? SQLiteValue
         
         let m = Mirror(reflecting: property.value)
         type = PropertyInfo.type(for: m) //m.subjectType as! SQLiteValue.Type
         isOptional = m.displayStyle == .optional
-        
         
     }
     
@@ -72,6 +76,20 @@ extension PropertyInfo {
         default:
             return mirror.subjectType as! SQLiteValue.Type
         }
+    }
+    
+    fileprivate static func unwrapOptional(_ val: Any) -> Any? {
+        let m = Mirror(reflecting: val)
+        if m.displayStyle != .optional {
+            return val
+        } else {
+            if let v = m.children.first?.value {
+                return self.unwrapOptional(v)
+            } else {
+                return nil
+            }
+        }
+        
     }
 }
 
