@@ -39,10 +39,10 @@ extension DatabaseQueue {
 extension DatabaseQueue {
     
     fileprivate func _handle(_ closure: (Database, inout Bool) -> ()) {
-        var need = false
+        var rollback = false
         _ = _db.beginTransaction()
-        closure(_db, &need)
-        if need {
+        closure(_db, &rollback)
+        if rollback {
             _ = _db.rollback()
         } else {
             _ = _db.commit()

@@ -88,11 +88,11 @@
 			children = (
 				9BD5CEDF1F5FE00D00DC8AB2 /* SwiftyDB.swift */,
 				9B8B7E841F622E0A00331B71 /* Filter.swift */,
+				9B8772251F60E7F500A930F5 /* SQLGenerator.swift */,
+				9B87722C1F612CF900A930F5 /* PropertyInfo.swift */,
 				9BD5CEDD1F5FB0AE00DC8AB2 /* DatabaseQueue.swift */,
 				9B891DE31F5E362000CDBAF1 /* Database.swift */,
 				9B891DEE1F5E592D00CDBAF1 /* ResultSet.swift */,
-				9B8772251F60E7F500A930F5 /* SQLGenerator.swift */,
-				9B87722C1F612CF900A930F5 /* PropertyInfo.swift */,
 				9B891DEC1F5E571B00CDBAF1 /* Statement.swift */,
 				9B891DE51F5E368300CDBAF1 /* SwiftyDB-Bridging-Header.h */,
 			);
