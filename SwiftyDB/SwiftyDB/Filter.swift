@@ -8,34 +8,14 @@
 
 import Foundation
 
-//enum Filter {
-//    
-//    case equal(String, SQLiteValue?)
-//    case notEqual(String, SQLiteValue?)
-//    case less(String, SQLiteValue)
-//    case greater(String, SQLiteValue)
-//    case lessOrEqual(String, SQLiteValue)
-//    case greaterOrEqual(String, SQLiteValue)
-//    
-//    case like(String, SQLiteValue)
-//    case notLike(String, SQLiteValue)
-//    
-//    case `in`(String, (SQLiteValue, SQLiteValue))
-//    case notIn(String, (SQLiteValue, SQLiteValue))
-//    
-//    case none
-//    
-//    fileprivate static var sql: String = ""
-//}
-
 struct Filter {
     
-    static func &&(_ l: Filter, _ r: inout Filter) -> Filter {
-        return l.and(&r)
+    static func &&(_ l: Filter, _ r: Filter) -> Filter {
+        return l.and(r)
     }
     
-    static func ||(_ l: Filter, _ r: inout Filter) -> Filter {
-        return l.or(&r)
+    static func ||(_ l: Filter, _ r: Filter) -> Filter {
+        return l.or(r)
     }
     
     fileprivate enum Relationship: String {
@@ -60,10 +40,11 @@ struct Filter {
     
     fileprivate var _preSQL: String = ""
     
-    fileprivate init(name: String, value: Any?, relationship: Relationship) {
+    fileprivate init(name: String, value: Any?, relationship: Relationship, preSQL: String = "") {
         _name = name
         _value = value
         _relationship = relationship
+        _preSQL = preSQL
     }
     
 }
@@ -115,14 +96,12 @@ extension Filter {
 
 extension Filter {
     
-    func and(_ other: inout Filter) -> Filter {
-        other._preSQL = self.toSQL() + " AND "
-        return other
+    func and(_ other: Filter) -> Filter {
+        return Filter(name: other._name, value: other._value, relationship: other._relationship, preSQL: self.toSQL() + " AND ")
     }
     
-    func or(_ other: inout Filter) -> Filter {
-        other._preSQL = self.toSQL() + " OR "
-        return other
+    func or(_ other: Filter) -> Filter {
+        return Filter(name: other._name, value: other._value, relationship: other._relationship, preSQL: self.toSQL() + " OR ")
     }
     
     func toSQL() -> String {
@@ -130,19 +109,17 @@ extension Filter {
         switch _relationship {
         case .equal, .notEqual:
             if let val = _value as? SQLiteValue {
-                sql += _relationship.rawValue + " \(val.toSQL())"
+                sql += _relationship.rawValue + " '\(val.toSQL())'"
             } else {
                 sql += "IS " + (_relationship == .notEqual ? "NOT " : "") + "NULL"
             }
         case .less, .greater, .lessOrEqual, .greaterOrEqual:
-            sql += _relationship.rawValue + " \((_value as! SQLiteValue).toSQL())"
+            sql += _relationship.rawValue + " '\((_value as! SQLiteValue).toSQL())'"
         case .like, .notLike:
             sql += _relationship.rawValue + " '\(_value as! String)'"
         case .in, .notIn:
             let range = _value as! [SQLiteValue]
-            let para = range.map({ (val) -> String in
-                return val.toSQL()
-            }).joined(separator: ", ")
+            let para = range.map{ "'\($0.toSQL())'" }.joined(separator: ", ")
             sql += _relationship.rawValue + " (" + para + ")"
         }
         return sql

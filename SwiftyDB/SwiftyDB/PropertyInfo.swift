@@ -15,17 +15,10 @@ struct PropertyInfo {
     let type: SQLiteValue.Type //Any.Type
     let isOptional: Bool
     
-    //    private let _property: Mirror.Child
-    
     init(property: Mirror.Child) {
         
         name = property.label!
-        
-//        if let v = PropertyInfo.unwrapOptional(property.value) {
-//            value = (v as! SQLiteValue)
-//        } else {
-//            value = nil
-//        }
+
         value = PropertyInfo.unwrapOptional(property.value) as? SQLiteValue
         
         let m = Mirror(reflecting: property.value)

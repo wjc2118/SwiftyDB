@@ -89,6 +89,8 @@ class ViewController: UIViewController {
         }
         */
         
+
+        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -96,7 +98,8 @@ class ViewController: UIViewController {
 //        let db = SwiftyDB(path: "/Users/y7/Desktop/aaa.sqlite")
 //        _ = db.delete(Test.self)
         
-        _ = db.delete(Test.self, filter: Filter.equal("name", nil))
+        _ = db.delete(Test.self, filter: .in(name: "id", range: [3, 13]) || .equal("id", 7) || .equal("name", "a15"))
+        
         
         
 //        queue.async { (db, roll) in
