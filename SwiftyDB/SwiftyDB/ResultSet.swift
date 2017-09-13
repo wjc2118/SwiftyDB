@@ -58,6 +58,35 @@ extension ResultSet {
         return Date(timeIntervalSince1970: doubleForColumn(at: index))
     }
     
+    
+    subscript(idx: Int32) -> Int {
+        return intForColumn(at: idx)
+    }
+    
+    subscript(idx: Int32) -> UInt {
+        return uintForColumn(at: idx)
+    }
+    
+    subscript(idx: Int32) -> Bool {
+        return boolForColumn(at: idx)
+    }
+    
+    subscript(idx: Int32) -> Double {
+        return doubleForColumn(at: idx)
+    }
+    
+    subscript(idx: Int32) -> String {
+        return stringForColumn(at: idx)
+    }
+    
+    subscript(idx: Int32) -> Data {
+        return dataForColumn(at: idx)
+    }
+    
+    subscript(idx: Int32) -> Date {
+        return dateForColumn(at: idx)
+    }
+    
 }
 
 
@@ -91,6 +120,35 @@ extension ResultSet {
     
     func dateForColumn(name: String) -> Date {
         return dateForColumn(at: _stmt.columnIndex(for: name))
+    }
+    
+    
+    subscript(name: String) -> Int {
+        return intForColumn(name: name)
+    }
+    
+    subscript(name: String) -> UInt {
+        return uintForColumn(name: name)
+    }
+    
+    subscript(name: String) -> Bool {
+        return boolForColumn(name: name)
+    }
+    
+    subscript(name: String) -> Double {
+        return doubleForColumn(name: name)
+    }
+    
+    subscript(name: String) -> String {
+        return stringForColumn(name: name)
+    }
+    
+    subscript(name: String) -> Data {
+        return dataForColumn(name: name)
+    }
+    
+    subscript(name: String) -> Date {
+        return dateForColumn(name: name)
     }
 }
 
