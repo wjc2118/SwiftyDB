@@ -72,7 +72,7 @@ extension SwiftyDB {
     
     func select(_ type: Storable.Type, filter: Filter? = nil) -> ResultSet? {
         var rs: ResultSet? = nil
-        let sql = SQLGenerator.select(for: type) + (filter?.toSQL() ?? "")
+        let sql = SQLGenerator.select(for: type, filter: filter)
         databaseQueue.sync { (db, rollback) in
             guard let resultSet = db.query(sql) else { rollback = false; return }
             rs = resultSet

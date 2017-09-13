@@ -34,8 +34,8 @@ struct SQLGenerator {
         return "DELETE FROM \(type)" + (filter?.toSQL() ?? "")
     }
     
-    static func select(for type: Storable.Type) -> String {
-        return "SELECT * FROM \(type)"
+    static func select(for type: Storable.Type, filter: Filter?) -> String {
+        return "SELECT * FROM \(type)" + (filter?.toSQL() ?? "")
     }
     
 }
