@@ -15,8 +15,6 @@ class Statement {
     
     var _pStmt: sqlite3_stmt? = nil 
     var _sql: String
-//    var useCnt: Int = 0
-//    var inUse: Bool = false
     
     fileprivate lazy var columnNameToIndexMap: [String: Int32] = {
         var map = [String: Int32]()

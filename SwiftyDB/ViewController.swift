@@ -39,9 +39,11 @@ class ViewController: UIViewController {
 
     let db = SwiftyDB(path: "/Users/y7/Desktop/aaa.sqlite")
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
         
 //        let t = Test(s: "str", ss: "sstr", o: nil, v: [3, 5])
 //        let m = Mirror(reflecting: t)
@@ -68,7 +70,7 @@ class ViewController: UIViewController {
 //            _ = db.insert(Test(id: i, name: "a\(i)", bool: i % 2 == 0))
 //        }
         
-        /* */
+        /*
         queue = DatabaseQueue(path: "/Users/y7/Desktop/aaa.sqlite")
         
         queue.sync { (db, rollback) in
@@ -87,7 +89,7 @@ class ViewController: UIViewController {
             
             _ = db.update("INSERT OR REPLACE INTO tab VALUES (:a,:b,:c,:d)", ["b": nil, "a": 30, "c": true, "d": Date()])
         }
- 
+         */
         
     }
 
@@ -97,7 +99,6 @@ class ViewController: UIViewController {
 //        _ = db.delete(Test.self)
         
 //        _ = db.delete(Test.self, filter: .in(name: "id", range: [3, 13]) || .equal("id", 7) || .equal("name", "a15"))
-        
         
         
         queue.async { (db, roll) in
