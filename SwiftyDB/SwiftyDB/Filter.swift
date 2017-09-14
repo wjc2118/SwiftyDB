@@ -10,11 +10,11 @@ import Foundation
 
 struct Filter {
     
-    static func &&(_ l: Filter, _ r: Filter) -> Filter {
+    static func &&(l: Filter, r: Filter) -> Filter {
         return l.and(r)
     }
     
-    static func ||(_ l: Filter, _ r: Filter) -> Filter {
+    static func ||(l: Filter, r: Filter) -> Filter {
         return l.or(r)
     }
     

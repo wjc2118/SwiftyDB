@@ -39,11 +39,15 @@ class ViewController: UIViewController {
 
     let db = SwiftyDB(path: "/Users/y7/Desktop/aaa.sqlite")
     
+    func fun<T: Storable>(t: T) {
+        print(type(of: t))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        fun(t: Test(id: 3, name: "a", bool: true))
         
 //        let t = Test(s: "str", ss: "sstr", o: nil, v: [3, 5])
 //        let m = Mirror(reflecting: t)
