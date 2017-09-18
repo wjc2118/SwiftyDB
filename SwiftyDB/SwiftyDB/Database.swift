@@ -175,7 +175,7 @@ class Database {
     }
     
     func tableSchema(_ name: String) -> ResultSet? {
-        //result colums: cid[INTEGER], name, type [STRING], notnull[INTEGER], dflt_value[], pk[INTEGER]
+        //result colums: cid[INTEGER], name, type[STRING], notnull[INTEGER], dflt_value[], pk[INTEGER]
         return query("pragma table_info('\(name)')")
     }
     

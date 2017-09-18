@@ -39,15 +39,14 @@ class ViewController: UIViewController {
 
     let db = SwiftyDB(path: "/Users/y7/Desktop/aaa.sqlite")
     
-    func fun<T: Storable>(t: T) {
-        print(type(of: t))
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        fun(t: Test(id: 3, name: "a", bool: true))
+        
+        
+        
         
 //        let t = Test(s: "str", ss: "sstr", o: nil, v: [3, 5])
 //        let m = Mirror(reflecting: t)
@@ -69,10 +68,11 @@ class ViewController: UIViewController {
         
         
         
-//        for i in 0..<20 {
-////            _ = db.insert(Test(id: i, name: (i % 2 == 0 ? "a\(i)" : nil), bool: i % 2 == 0))
+        for i in 0..<20 {
+//            _ = db.insert(Test(id: i, name: (i % 2 == 0 ? "a\(i)" : nil), bool: i % 2 == 0))
 //            _ = db.insert(Test(id: i, name: "a\(i)", bool: i % 2 == 0))
-//        }
+//            _ = SwiftyDB.shared.insert(Test(id: i, name: "a\(i)", bool: i % 2 == 0))
+        }
         
         /*
         queue = DatabaseQueue(path: "/Users/y7/Desktop/aaa.sqlite")
@@ -105,18 +105,18 @@ class ViewController: UIViewController {
 //        _ = db.delete(Test.self, filter: .in(name: "id", range: [3, 13]) || .equal("id", 7) || .equal("name", "a15"))
         
         
-        queue.async { (db, roll) in
-            let r = db.query("SELECT * FROM tab WHERE name IS NULL")!
-            
-            
-            r.forEach { (r) in
-                print(r["id"] as Int)
-                print(r["name"] as String)
-                print(r.boolForColumn(name: "bool"))
-                print(r.dateForColumn(name: "date"))
-                print("")
-            }
-        }
+//        queue.async { (db, roll) in
+//            let r = db.query("SELECT * FROM tab WHERE name IS NULL")!
+//            
+//            
+//            r.forEach { (r) in
+//                print(r["id"] as Int)
+//                print(r["name"] as String)
+//                print(r.boolForColumn(name: "bool"))
+//                print(r.dateForColumn(name: "date"))
+//                print("")
+//            }
+//        }
         
         
         

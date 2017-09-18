@@ -20,6 +20,13 @@ extension Storable {
 
 class SwiftyDB {
     
+    static let shared: SwiftyDB = {
+        guard let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else {
+            fatalError()
+        }
+        return SwiftyDB(path: path + "/SwiftyDB.sqlite")
+    }()
+    
     fileprivate let databaseQueue: DatabaseQueue
     
     fileprivate var existTables = Set<String>()
@@ -29,6 +36,32 @@ class SwiftyDB {
     }
     
 }
+
+extension SwiftyDB {
+    
+    fileprivate func tableExists(for type: Storable.Type) -> Bool {
+        let name = tableName(for: type)
+        var exists = existTables.contains(name)
+        if exists { return true }
+        
+        databaseQueue.sync { (db, _) in
+            exists = db.contains(table: name)
+        }
+        
+        if exists {
+            existTables.insert(name)
+        }
+        
+        return exists
+    }
+    
+    fileprivate func tableName(for type: Storable.Type) -> String {
+        return "\(type)"
+    }
+    
+}
+
+// MARK: - mirror
 
 extension SwiftyDB {
     
@@ -78,30 +111,6 @@ extension SwiftyDB {
             rs = resultSet
         }
         return rs
-    }
-    
-}
-
-extension SwiftyDB {
-    
-    fileprivate func tableExists(for type: Storable.Type) -> Bool {
-        let name = tableName(for: type)
-        var exists = existTables.contains(name)
-        if exists { return true }
-        
-        databaseQueue.sync { (db, _) in
-            exists = db.contains(table: name)
-        }
-        
-        if exists {
-            existTables.insert(name)
-        }
-        
-        return exists
-    }
-    
-    fileprivate func tableName(for type: Storable.Type) -> String {
-        return "\(type)"
     }
     
 }

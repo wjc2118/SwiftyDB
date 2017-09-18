@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B8772261F60E7F500A930F5 /* SQLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8772251F60E7F500A930F5 /* SQLGenerator.swift */; };
-		9B87722D1F612CF900A930F5 /* PropertyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87722C1F612CF900A930F5 /* PropertyInfo.swift */; };
 		9B891DD11F5E357A00CDBAF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B891DD01F5E357A00CDBAF1 /* AppDelegate.swift */; };
 		9B891DD31F5E357A00CDBAF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B891DD21F5E357A00CDBAF1 /* ViewController.swift */; };
 		9B891DD81F5E357A00CDBAF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B891DD71F5E357A00CDBAF1 /* Assets.xcassets */; };
@@ -17,14 +15,14 @@
 		9B891DEB1F5E3BE900CDBAF1 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B891DEA1F5E3BE900CDBAF1 /* libsqlite3.0.tbd */; };
 		9B891DED1F5E571B00CDBAF1 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B891DEC1F5E571B00CDBAF1 /* Statement.swift */; };
 		9B891DEF1F5E592D00CDBAF1 /* ResultSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B891DEE1F5E592D00CDBAF1 /* ResultSet.swift */; };
-		9B8B7E851F622E0A00331B71 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B7E841F622E0A00331B71 /* Filter.swift */; };
+		9B8FD1341F6B7C2400B108DF /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FD1311F6B7C2400B108DF /* Filter.swift */; };
+		9B8FD1351F6B7C2400B108DF /* PropertyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FD1321F6B7C2400B108DF /* PropertyInfo.swift */; };
+		9B8FD1361F6B7C2400B108DF /* SQLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FD1331F6B7C2400B108DF /* SQLGenerator.swift */; };
 		9BD5CEDE1F5FB0AE00DC8AB2 /* DatabaseQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5CEDD1F5FB0AE00DC8AB2 /* DatabaseQueue.swift */; };
 		9BD5CEE01F5FE00D00DC8AB2 /* SwiftyDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5CEDF1F5FE00D00DC8AB2 /* SwiftyDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9B8772251F60E7F500A930F5 /* SQLGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLGenerator.swift; sourceTree = "<group>"; };
-		9B87722C1F612CF900A930F5 /* PropertyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyInfo.swift; sourceTree = "<group>"; };
 		9B891DCD1F5E357A00CDBAF1 /* SwiftyDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B891DD01F5E357A00CDBAF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B891DD21F5E357A00CDBAF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +34,9 @@
 		9B891DEA1F5E3BE900CDBAF1 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9B891DEC1F5E571B00CDBAF1 /* Statement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		9B891DEE1F5E592D00CDBAF1 /* ResultSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultSet.swift; sourceTree = "<group>"; };
-		9B8B7E841F622E0A00331B71 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		9B8FD1311F6B7C2400B108DF /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		9B8FD1321F6B7C2400B108DF /* PropertyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyInfo.swift; sourceTree = "<group>"; };
+		9B8FD1331F6B7C2400B108DF /* SQLGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLGenerator.swift; sourceTree = "<group>"; };
 		9BD5CEDD1F5FB0AE00DC8AB2 /* DatabaseQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseQueue.swift; sourceTree = "<group>"; };
 		9BD5CEDF1F5FE00D00DC8AB2 /* SwiftyDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,10 +86,8 @@
 		9B891DE21F5E35A200CDBAF1 /* SwiftyDB */ = {
 			isa = PBXGroup;
 			children = (
+				9B8FD1301F6B7C2400B108DF /* Mirror */,
 				9BD5CEDF1F5FE00D00DC8AB2 /* SwiftyDB.swift */,
-				9B8B7E841F622E0A00331B71 /* Filter.swift */,
-				9B8772251F60E7F500A930F5 /* SQLGenerator.swift */,
-				9B87722C1F612CF900A930F5 /* PropertyInfo.swift */,
 				9BD5CEDD1F5FB0AE00DC8AB2 /* DatabaseQueue.swift */,
 				9B891DE31F5E362000CDBAF1 /* Database.swift */,
 				9B891DEE1F5E592D00CDBAF1 /* ResultSet.swift */,
@@ -105,6 +103,16 @@
 				9B891DEA1F5E3BE900CDBAF1 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B8FD1301F6B7C2400B108DF /* Mirror */ = {
+			isa = PBXGroup;
+			children = (
+				9B8FD1311F6B7C2400B108DF /* Filter.swift */,
+				9B8FD1321F6B7C2400B108DF /* PropertyInfo.swift */,
+				9B8FD1331F6B7C2400B108DF /* SQLGenerator.swift */,
+			);
+			path = Mirror;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,15 +189,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B891DE41F5E362000CDBAF1 /* Database.swift in Sources */,
-				9B8B7E851F622E0A00331B71 /* Filter.swift in Sources */,
-				9B87722D1F612CF900A930F5 /* PropertyInfo.swift in Sources */,
 				9BD5CEE01F5FE00D00DC8AB2 /* SwiftyDB.swift in Sources */,
 				9B891DEF1F5E592D00CDBAF1 /* ResultSet.swift in Sources */,
 				9B891DD31F5E357A00CDBAF1 /* ViewController.swift in Sources */,
-				9B8772261F60E7F500A930F5 /* SQLGenerator.swift in Sources */,
 				9B891DD11F5E357A00CDBAF1 /* AppDelegate.swift in Sources */,
+				9B8FD1341F6B7C2400B108DF /* Filter.swift in Sources */,
+				9B8FD1361F6B7C2400B108DF /* SQLGenerator.swift in Sources */,
 				9BD5CEDE1F5FB0AE00DC8AB2 /* DatabaseQueue.swift in Sources */,
 				9B891DED1F5E571B00CDBAF1 /* Statement.swift in Sources */,
+				9B8FD1351F6B7C2400B108DF /* PropertyInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
