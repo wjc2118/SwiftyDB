@@ -10,7 +10,7 @@ import Foundation
 
 struct ResultSet {
     
-    fileprivate let _stmt: Statement
+    private let _stmt: Statement
     
     init(stmt: Statement) {
         _stmt = stmt

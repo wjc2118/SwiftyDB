@@ -16,7 +16,7 @@ class Statement {
     var _pStmt: sqlite3_stmt? = nil 
     var _sql: String
     
-    fileprivate lazy var columnNameToIndexMap: [String: Int32] = {
+    private lazy var columnNameToIndexMap: [String: Int32] = {
         var map = [String: Int32]()
         for idx in 0..<sqlite3_column_count(self._pStmt) {
             let name = String(cString: sqlite3_column_name(self._pStmt, idx)).lowercased()
@@ -202,7 +202,7 @@ extension Statement {
         }
     }
     
-    fileprivate func finalize() {
+    private func finalize() {
         if _pStmt != nil {
             sqlite3_finalize(_pStmt)
             _pStmt = nil

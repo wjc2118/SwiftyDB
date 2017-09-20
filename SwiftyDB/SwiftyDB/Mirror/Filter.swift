@@ -18,7 +18,7 @@ struct Filter {
         return l.or(r)
     }
     
-    fileprivate enum Relationship: String {
+    private enum Relationship: String {
         case equal            =    "="
         case notEqual         =    "!="
         case less             =    "<"
@@ -34,13 +34,13 @@ struct Filter {
     }
     
     
-    fileprivate let _name: String
-    fileprivate let _value: Any?
-    fileprivate let _relationship: Relationship
+    private let _name: String
+    private let _value: Any?
+    private let _relationship: Relationship
     
-    fileprivate var _preSQL: String = ""
+    private var _preSQL: String = ""
     
-    fileprivate init(name: String, value: Any?, relationship: Relationship, preSQL: String = "") {
+    private init(name: String, value: Any?, relationship: Relationship, preSQL: String = "") {
         _name = name
         _value = value
         _relationship = relationship

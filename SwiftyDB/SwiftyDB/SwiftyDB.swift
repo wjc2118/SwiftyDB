@@ -27,9 +27,9 @@ class SwiftyDB {
         return SwiftyDB(path: path + "/SwiftyDB.sqlite")
     }()
     
-    fileprivate let databaseQueue: DatabaseQueue
+    private let databaseQueue: DatabaseQueue
     
-    fileprivate var existTables = Set<String>()
+    private var existTables = Set<String>()
     
     init(path: String) {
         databaseQueue = DatabaseQueue(path: path)
@@ -39,7 +39,7 @@ class SwiftyDB {
 
 extension SwiftyDB {
     
-    fileprivate func tableExists(for type: Storable.Type) -> Bool {
+    private func tableExists(for type: Storable.Type) -> Bool {
         let name = tableName(for: type)
         var exists = existTables.contains(name)
         if exists { return true }
@@ -55,7 +55,7 @@ extension SwiftyDB {
         return exists
     }
     
-    fileprivate func tableName(for type: Storable.Type) -> String {
+    private func tableName(for type: Storable.Type) -> String {
         return "\(type)"
     }
     

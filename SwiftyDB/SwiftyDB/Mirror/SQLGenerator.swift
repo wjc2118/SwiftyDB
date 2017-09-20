@@ -42,7 +42,7 @@ struct SQLGenerator {
 
 extension SQLGenerator {
     
-    fileprivate static func _createProperty(for value: Storable) -> String {
+    private static func _createProperty(for value: Storable) -> String {
         var columns = [String]()
         let infos = PropertyInfo.propertyInfo(for: value)
         for info in infos {
@@ -55,7 +55,7 @@ extension SQLGenerator {
         return columns.joined(separator: ", ")
     }
     
-    fileprivate static func _insertProperty(for value: Storable) -> (String, [String: SQLiteValue?]) {
+    private static func _insertProperty(for value: Storable) -> (String, [String: SQLiteValue?]) {
         
         var columns = [String]()
         var values = [String: SQLiteValue?]()
@@ -67,7 +67,7 @@ extension SQLGenerator {
         return (columns.joined(separator: ", "), values)
     }
     
-//    fileprivate static func _delete
+//    private static func _delete
 }
 
 

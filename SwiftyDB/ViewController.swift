@@ -38,12 +38,12 @@ class ViewController: UIViewController {
     var queue: DatabaseQueue!
 
     let db = SwiftyDB(path: "/Users/y7/Desktop/aaa.sqlite")
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         
         
         

@@ -50,7 +50,7 @@ extension PropertyInfo {
         return infos
     }
     
-    fileprivate static func type(for mirror: Mirror) -> SQLiteValue.Type {
+    private static func type(for mirror: Mirror) -> SQLiteValue.Type {
         switch mirror.subjectType {
             
         case is Optional<String>.Type:      return String.self
@@ -71,7 +71,7 @@ extension PropertyInfo {
         }
     }
     
-    fileprivate static func unwrapOptional(_ val: Any) -> Any? {
+    private static func unwrapOptional(_ val: Any) -> Any? {
         let m = Mirror(reflecting: val)
         if m.displayStyle != .optional {
             return val

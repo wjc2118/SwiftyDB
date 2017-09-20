@@ -10,9 +10,9 @@ import Foundation
 
 class DatabaseQueue {
     
-    fileprivate let _queue = DispatchQueue(label: "swiftydb.queue")
+    private let _queue = DispatchQueue(label: "swiftydb.queue")
     
-    fileprivate let _db: Database
+    private let _db: Database
     
     init(path: String) {
         _db = Database(path: path)
@@ -38,7 +38,7 @@ extension DatabaseQueue {
 
 extension DatabaseQueue {
     
-    fileprivate func _handle(_ closure: (Database, inout Bool) -> ()) {
+    private func _handle(_ closure: (Database, inout Bool) -> ()) {
         var rollback = false
         _ = _db.beginTransaction()
         closure(_db, &rollback)
