@@ -66,13 +66,21 @@ class ViewController: UIViewController {
 //            print("")
 //        }
         
+        let t = Test(id: 3, name: "a", bool: true)
+        let k = \Test.name
+        let s = t[keyPath: k]
+        print(s)
+//        t[keyPath: k] = "b"
         
         
-        for i in 0..<20 {
+        print(t)
+        
+        
+//        for i in 0..<20 {
 //            _ = db.insert(Test(id: i, name: (i % 2 == 0 ? "a\(i)" : nil), bool: i % 2 == 0))
 //            _ = db.insert(Test(id: i, name: "a\(i)", bool: i % 2 == 0))
 //            _ = SwiftyDB.shared.insert(Test(id: i, name: "a\(i)", bool: i % 2 == 0))
-        }
+//        }
         
         /*
         queue = DatabaseQueue(path: "/Users/y7/Desktop/aaa.sqlite")
